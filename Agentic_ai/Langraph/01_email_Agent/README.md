@@ -14,6 +14,8 @@ sending are separate steps; the bundled Streamlit interface only produces drafts
 > draft is approved in the command-line flow. The Streamlit UI is intentionally
 > draft-only and never sends anything. See [Security Notes](#security-notes).
 
+![AI Email Assistant Streamlit interface with the email details form](assets/email-form.png)
+
 ---
 
 ## Features
@@ -97,7 +99,14 @@ flowchart TD
 ├── agent.py          # LangGraph workflow: state, nodes, edges, final_graph
 ├── send_email.py     # Gmail SMTP helper used by send_node
 ├── streamlit_app.py  # Streamlit UI (draft-only)
-└── test.ipynb        # Notebook used for manual, interactive testing
+├── test.ipynb        # Notebook used for manual, interactive testing
+└── assets/           # README screenshots
+    ├── email-form.png
+    ├── email-form-filled.png
+    ├── email-generated.png
+    ├── email-feedback.png
+    ├── email-feedback-applied.png
+    └── email-generated-updated.png
 ```
 
 - **`agent.py`** — defines `EmailState`, the retriever/draft/review/send/cancel
@@ -208,6 +217,29 @@ Thank you for your consideration.
 Best regards,
 [Your Name]
 ```
+
+The screenshots below show the same workflow in the Streamlit interface. These are
+draft-only; no email is sent from the UI.
+
+The form after entering the purpose, recipient, key points, and a signature:
+
+![Filled email details form](assets/email-form-filled.png)
+
+The generated subject and editable body, with a **Copy Email** button:
+
+![Generated subject and body with a Copy Email button](assets/email-generated.png)
+
+Providing feedback to revise the draft:
+
+![Feedback field used to request a revision](assets/email-feedback.png)
+
+Confirmation that the draft was updated from the feedback:
+
+![Confirmation that the draft was updated using the feedback](assets/email-feedback-applied.png)
+
+The revised draft, with the placeholder signature replaced:
+
+![Revised draft with the placeholder name replaced by the signature](assets/email-generated-updated.png)
 
 ---
 
