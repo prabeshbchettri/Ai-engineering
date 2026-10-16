@@ -3,3 +3,5 @@ langgraph
 langchain-groq
 dotenv
 langgraph-checkpoint-sqlite
+sqlalchemy
+pydantic
