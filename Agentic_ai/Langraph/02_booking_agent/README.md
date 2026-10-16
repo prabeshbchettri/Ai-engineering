@@ -17,6 +17,8 @@ response.
 > tickets. All bookings are stored in a local SQLite file (`cinema.db`). See
 > [Booking and Transaction Limitations](#booking-and-transaction-limitations).
 
+![CinemaBot Streamlit interface showing the "Now Showing" movie list](assets/movie-list.png)
+
 ---
 
 ## Features
@@ -122,7 +124,11 @@ requests to `confirm_booking_node`.
 ├── db.py             # Seed movie data
 ├── streamlit_app.py  # Streamlit chat UI
 ├── cinema.db         # Local SQLite database (generated; excluded from Git)
-└── test.ipynb        # Notebook used for manual, interactive testing
+├── test.ipynb        # Notebook used for manual, interactive testing
+└── assets/           # README screenshots
+    ├── movie-list.png
+    ├── booking-confirmation.png
+    └── booking-confirmed-copy.png
 ```
 
 - **`agent.py`** — defines `CinemaState`, the classifier and operation nodes, the
@@ -246,6 +252,13 @@ Agent: Your booking is confirmed.
 
 The final confirmation above is a **simulated** record stored in the local
 `cinema.db`; it is not a real reservation.
+
+The screenshots below show the same flow in the Streamlit interface: the agent
+asks for confirmation, and approving the booking returns a copyable summary.
+
+![Booking confirmation prompt followed by a "yes" reply](assets/booking-confirmation.png)
+
+![Booking confirmed summary with total paid, booking id, and a Copy message button](assets/booking-confirmed-copy.png)
 
 ---
 
